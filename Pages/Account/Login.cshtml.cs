@@ -8,9 +8,19 @@ namespace SupermarketWEB.Pages.Account
     {
         [BindProperty]
         public User User { get; set; }
-        public void OnPost()
+        public void OnGet()
         {
-            Console.WriteLine("User: " +User.Email + " Password : " + User.Password);
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid) return Page();
+
+            if (User.Email == "correo@gmail.com" &&  User.Password == "12345")
+            {
+                return RedirectToPage("/index");
+            }
+            return Page();
         }
     }
 }
