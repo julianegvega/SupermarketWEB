@@ -15,6 +15,6 @@ namespace SupermarketWEB.Models
         public int Number { get; set; }
         public string Email { get; set; }
 
-        public ICollection<Invoice> Invoices { get; set; }
+        public ICollection<Invoice>? Invoices { get; set; } = default!;
     }
 }
